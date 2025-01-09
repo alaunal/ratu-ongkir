@@ -44,19 +44,25 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     EsearchType.DOMESTIC
   );
 
-  const [dataDomestic, setDataDomestic] = useState<TDataCost[] | null>(null);
+//   const [dataDomestic, setDataDomestic] = useState<TDataCost[] | null>(null);
 
-  const [dataInternational, setDataInternational] = useState<
-    TDataCost[] | null
-  >(null);
+//   const [dataInternational, setDataInternational] = useState<
+//     TDataCost[] | null
+//   >(null);
 
-  const [dataTracking, setDataTracking] = useState<any | null>(null);
+//   const [dataTracking, setDataTracking] = useState<any | null>(null);
 
-  const fetchDomestic = (payload: TPayload) => {};
+  const fetchDomestic = (payload: TPayload) => {
+    return payload;
+  };
 
-  const fetchInternational = (payload: TPayload) => {};
+  const fetchInternational = (payload: TPayload) => {
+    return payload;
+  };
 
-  const fetchTracking = (payload: TPayloadTracking) => {};
+  const fetchTracking = (payload: TPayloadTracking) => {
+    return payload;
+  };
 
   const value = {
     searchType,
