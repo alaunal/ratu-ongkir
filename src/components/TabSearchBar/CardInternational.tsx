@@ -52,7 +52,7 @@ const CardInternational: React.FC = () => {
         </div>
       </CardContent>
       <CardFooter>
-        <div className="pt-4">
+        <div className="pt-4 w-full">
           <p className="font-bold mb-4 text-center text">Expedition</p>
           <div className="flex flex-wrap items-center justify-center gap-8">
             {international.map((item, index) => (

@@ -9,6 +9,16 @@ import {
   CardFooter,
 } from "@/components/ui/card";
 
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
@@ -30,12 +40,26 @@ const CardTrackingPackage: React.FC = () => {
           <div className="flex-1">
             <Input
               type="text"
-              placeholder="City of origin of shipment"
+              placeholder="Please enter receipt code"
               className="w-full"
             />
           </div>
           <div>
-            <Input type="number" placeholder="Weight by gram" />
+            <Select>
+              <SelectTrigger>
+                <SelectValue placeholder="Select a fruit" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  <SelectLabel>Select Expedition</SelectLabel>
+                  {tracking.map((item, index) => (
+                    <SelectItem key={index} value={item.code}>
+                      {item.name}
+                    </SelectItem>
+                  ))}
+                </SelectGroup>
+              </SelectContent>
+            </Select>
           </div>
           <div>
             <Button>
@@ -45,7 +69,7 @@ const CardTrackingPackage: React.FC = () => {
         </div>
       </CardContent>
       <CardFooter>
-        <div className="pt-4">
+        <div className="pt-4 w-full">
           <p className="font-bold mb-4 text-center text">Expedition</p>
           <div className="flex flex-wrap items-center justify-center gap-8">
             {tracking.map((item, index) => (

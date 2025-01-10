@@ -11,7 +11,7 @@ import CardTrackingPackage from "./CardTrackingPackage";
 const TabSearchBar: React.FC = () => {
   return (
     <Tabs defaultValue="domestik">
-      <TabsList>
+      <TabsList className="mb-2">
         <TabsTrigger value="domestik">
           <Truck className="mr-1" size={18} /> Domestic
         </TabsTrigger>
