@@ -32,6 +32,7 @@ const CardDomestic: React.FC = () => {
               type="text"
               placeholder="City of origin of shipment"
               className="w-full"
+              
             />
           </div>
           <div className="flex-1">

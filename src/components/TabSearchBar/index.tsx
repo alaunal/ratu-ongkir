@@ -1,12 +1,13 @@
-import React from "react";
+import React, { Suspense } from "react";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import { Truck, Globe, Package } from "@phosphor-icons/react";
 
-import CardDomestic from "./CardDomestic";
-import CardInternational from "./CardInternational";
-import CardTrackingPackage from "./CardTrackingPackage";
+// Dynamic imports
+const CardDomestic = React.lazy(() => import("./CardDomestic"));
+const CardInternational = React.lazy(() => import("./CardInternational"));
+const CardTrackingPackage = React.lazy(() => import("./CardTrackingPackage"));
 
 const TabSearchBar: React.FC = () => {
   return (
@@ -23,13 +24,19 @@ const TabSearchBar: React.FC = () => {
         </TabsTrigger>
       </TabsList>
       <TabsContent value="domestik">
-        <CardDomestic />
+        <Suspense fallback={<div>Loading Domestic...</div>}>
+          <CardDomestic />
+        </Suspense>
       </TabsContent>
       <TabsContent value="international">
-        <CardInternational />
+        <Suspense fallback={<div>Loading International...</div>}>
+          <CardInternational />
+        </Suspense>
       </TabsContent>
       <TabsContent value="tracking-package">
-        <CardTrackingPackage />
+        <Suspense fallback={<div>Loading Tracking Package...</div>}>
+          <CardTrackingPackage />
+        </Suspense>
       </TabsContent>
     </Tabs>
   );

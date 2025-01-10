@@ -47,11 +47,11 @@ const CardTrackingPackage: React.FC = () => {
           <div>
             <Select>
               <SelectTrigger>
-                <SelectValue placeholder="Select a fruit" />
+                <SelectValue placeholder="Select Expedition" />
               </SelectTrigger>
               <SelectContent>
                 <SelectGroup>
-                  <SelectLabel>Select Expedition</SelectLabel>
+                  <SelectLabel>Expedition:</SelectLabel>
                   {tracking.map((item, index) => (
                     <SelectItem key={index} value={item.code}>
                       {item.name}
