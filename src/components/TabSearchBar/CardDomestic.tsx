@@ -17,10 +17,13 @@ import { MagnifyingGlass } from "@phosphor-icons/react";
 
 import { domestic } from "@/constants";
 
-const CardDomestic: React.FC = () => {
+const CardDomestic: FC = () => {
   const [origin, setOrigin] = useState<string>("");
   const [destination, setDestination] = useState<string>("");
   const [weight, setWeight] = useState<number>(0);
+
+  console.info(origin, destination, weight);
+  
 
   return (
     <Card>
