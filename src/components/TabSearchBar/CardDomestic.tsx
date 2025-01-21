@@ -1,4 +1,4 @@
-import React from "react";
+import { FC, useState } from "react";
 
 import {
   Card,
@@ -8,15 +8,20 @@ import {
   CardTitle,
   CardFooter,
 } from "@/components/ui/card";
-
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+
+import SearchInputLocation from "@/components/SearchInputLocation";
 
 import { MagnifyingGlass } from "@phosphor-icons/react";
 
 import { domestic } from "@/constants";
 
 const CardDomestic: React.FC = () => {
+  const [origin, setOrigin] = useState<string>("");
+  const [destination, setDestination] = useState<string>("");
+  const [weight, setWeight] = useState<number>(0);
+
   return (
     <Card>
       <CardHeader>
@@ -28,22 +33,23 @@ const CardDomestic: React.FC = () => {
       <CardContent>
         <div className="flex gap-3 w-full">
           <div className="flex-1">
-            <Input
-              type="text"
+            <SearchInputLocation
               placeholder="City of origin of shipment"
-              className="w-full"
-              
+              onSelect={(data) => setOrigin(data ? data?.value : "")}
             />
           </div>
           <div className="flex-1">
-            <Input
-              type="text"
+            <SearchInputLocation
               placeholder="Delivery destination city"
-              className="w-full"
+              onSelect={(data) => setDestination(data ? data?.value : "")}
             />
           </div>
           <div>
-            <Input type="number" placeholder="Weight by gram" />
+            <Input
+              type="number"
+              placeholder="Weight by gram"
+              onChange={(e) => setWeight(Number(e.target.value))}
+            />
           </div>
           <div>
             <Button>
